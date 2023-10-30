@@ -2,4 +2,5 @@
 <resources>
     <string name="hello_world">Hello world</string>
     <string name="hello_x">Hello %s</string>
+    <string name="screen">This is a screen!</string>
 </resources>
