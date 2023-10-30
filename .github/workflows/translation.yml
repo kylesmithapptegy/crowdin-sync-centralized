@@ -1,0 +1,58 @@
+name: Crowdin Actions
+run-name: PR "${{ github.event.pull_request.title }}" translation sync with Crowdin
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+env:
+  CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+  CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+jobs:
+  # This workflow contains a single job called "build"
+  translate: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Push source translations
+      uses: crowdin/github-action@v1.14.0
+      with:
+        upload_sources: true
+        upload_translations: false
+        download_translations: false
+        crowdin_branch_name: ${{ github.head_ref }}
+
+    - name: Try to Translate form Memory w/ Crowdin
+      uses: crowdin/github-action@v1.14.0
+      with: 
+        command: 'pre-translate'
+        command_args: '--method tm --auto-approve-option except-auto-substituted --duplicate-translations --branch=${{ github.head_ref }}'
+
+    - name: Machine Translate Strings w/ Crowdin
+      uses: crowdin/github-action@v1.14.0
+      with: 
+        command: 'pre-translate'
+        command_args: '--method mt --engine-id ${{secrets.ML_ENGINE_ID}} --branch=${{ github.head_ref }}'
+
+    - name: Pull translations from Crowdin
+      uses: crowdin/github-action@v1.14.0
+      with:
+        upload_sources: false
+        upload_translations: false
+        download_translations: true
+        crowdin_branch_name: ${{ github.head_ref }}
+        pull_request_base_branch_name: ${{ github.head_ref }}
+        localization_branch_name: ${{ github.head_ref }}-crowdin-sync
+        pull_request_title: Updated translations for ${{ github.head_ref }}
+        pull_request_body: Syncing translations with ${{ github.head_ref }}
+        commit_message: Sync translations for ${{ github.head_ref }}
+        pull_request_labels: translations
+        github_user_name: kylesmithapptegy
+        github_user_email: kyle.smith@apptegy.com
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
