@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Ahoj světe</string>
+    <string name="hello_x">Ahoj %s</string>
+    <string name="screen">Toto je obrazovka!</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Chào thế giới</string>
+    <string name="hello_x">Xin chào %s</string>
+    <string name="screen">Đây là một màn hình!</string>
+</resources>

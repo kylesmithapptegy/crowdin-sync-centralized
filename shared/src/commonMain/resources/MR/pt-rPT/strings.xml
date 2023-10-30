@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Olá Mundo</string>
+    <string name="hello_x">Olá %s</string>
+    <string name="screen">Isto é uma tela!</string>
+</resources>
