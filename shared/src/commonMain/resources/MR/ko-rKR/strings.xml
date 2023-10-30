@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">안녕하세요 세상</string>
+    <string name="hello_x">안녕하세요 %s</string>
+    <string name="screen">이것은 화면입니다!</string>
+</resources>

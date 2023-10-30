@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Γειά σου Κόσμε</string>
+    <string name="hello_x">Γεια σου %s</string>
+    <string name="screen">Αυτή είναι μια οθόνη!</string>
+</resources>

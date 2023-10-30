@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">你好世界</string>
+    <string name="hello_x">你好 %s</string>
+    <string name="screen">这是一个屏幕！</string>
+</resources>

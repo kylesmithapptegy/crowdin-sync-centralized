@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Привіт Світ</string>
+    <string name="hello_x">Привіт %s</string>
+    <string name="screen">Це ширма!</string>
+</resources>
